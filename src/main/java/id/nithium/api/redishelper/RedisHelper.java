@@ -13,6 +13,8 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
 @Getter
@@ -25,6 +27,7 @@ public class RedisHelper implements IForestRedisPlugin {
     private EventManager eventManager;
     private final String identifier;
     private final RedisManager redisManager;
+    private final ExecutorService executorService = Executors.newCachedThreadPool();
 
     public RedisHelper(@NonNull String identifier, @NonNull RedisConfiguration redisConfiguration) {
         instance = this;
@@ -39,7 +42,7 @@ public class RedisHelper implements IForestRedisPlugin {
 
     @Override
     public void runAsync(Runnable runnable) {
-        CompletableFuture.runAsync(runnable);
+        executorService.execute(runnable);
     }
 
     @Override
