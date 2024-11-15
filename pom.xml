@@ -36,8 +36,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.NithiumDevelopment</groupId>
-            <artifactId>api</artifactId>
-            <version>238c5f4235</version>
+            <artifactId>NithiumAPI</artifactId>
+            <version>9772a22cc6</version>
         </dependency>
         <dependency>
             <groupId>com.github.NithiumDevelopment</groupId>
